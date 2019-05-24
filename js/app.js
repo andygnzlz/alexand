@@ -1,7 +1,10 @@
-$(document).foundation();
+$(function(){
+    var $select = $(".1-100");
+    for (i=1;i<=100;i++){
+        $select.append($('<option></option>').val(i).html(i))
+    }
+});
 
-$('.title-bar').on('sticky.zf.stuckto:top', function(){
-  $(this).addClass('shrink');
-}).on('sticky.zf.unstuckfrom:top', function(){
-  $(this).removeClass('shrink');
+$('#exampleModalCenter').on('shown.bs.modal', function () {
+  $('#exampleModalCenter').trigger('focus')
 })
