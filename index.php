@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -11,10 +10,12 @@
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css" media="screen" charset="utf-8">
   </head>
   <body>
+    <?php
+      require('model/db.php');
 
+      $connection = New dataBase();
+      $connection->open_connection();
+    ?>
 
   </body>
   </html>
-=======
-<p>hola perra</p>
->>>>>>> f70c85c4d8a6e2e66cc4091b18b0d06083438738
