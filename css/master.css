@@ -10,3 +10,17 @@
 .loco{
   background-color: blue;
 }
+
+nav{
+  border-radius: 0 0 15px 15px ;
+}
+.product{
+  border-radius: 5px;
+}
+.invoice-box{
+  margin-top: 8%;
+  margin: solid black;
+  min-width: 90%;
+  min-height: 500px;
+  text-align: justify;
+}
