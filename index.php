@@ -10,7 +10,12 @@
     <link rel="stylesheet" href="foundation-icons/foundation-icons.css" media="screen" charset="utf-8">
   </head>
   <body>
-    prueba
+    <?php
+      require('model/db.php');
+
+      $connection = New dataBase();
+      $connection->open_connection();
+    ?>
 
   </body>
   </html>
