@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-?<?php
 
-abstract class dataBase{
-  
-}
-=======
 <?php
 
-//abstract class dataBase{
-  class dataBase {
+abstract class DataBase{
+
   private static $db_host = 'localhost';
   private static $db_user = 'root';
   private static $db_pass = '';
@@ -18,12 +12,12 @@ abstract class dataBase{
   private $conn;
 
   #metodos abstractos de clases que MysqlndUhPreparedStatement
-/*
+
   abstract protected function get ();
   abstract protected function set ();
   abstract protected function edit ();
   abstract protected function delete ();
-*/
+
   # Conectar a la base de datos
   public function open_connection() {
 
@@ -40,7 +34,7 @@ abstract class dataBase{
 
     }else {
       echo 'conecto';
-/*
+      /*
       $sql = "SELECT id_empresa , nombre_empresa FROM empresas";
       $result = $this->conn->query($sql);
 
@@ -50,9 +44,10 @@ abstract class dataBase{
               echo "id: " . $row["id_empresa"]. " - Name: " . $row["nombre_empresa"]. "<br>";
           }
       }
-*/
-  }
-/*
+      */
+    }
+}
+
   #desconectar la base de datos
   private function close_connection(){
     $this->conn->close();
@@ -72,9 +67,8 @@ abstract class dataBase{
     $this->close_connection();
     array_pop($this->rows);
   }
-*/
-}
+
 }
 
+
 ?>
->>>>>>> e22bcd9ecd3a515292c9eb2da8b351a5ee62f072
