@@ -1,17 +1,19 @@
 <?php
 #importar db.php
-require_once('../core/db_abstract_model.php');
+require_once('db.php');
 
 class Empresa extends DataBase {
+#se reciben los datos del formulario
+  public $nombre_empresa = $_POST["company"];
+  public $nombre_producto = $_POST[""];
+  public $cantidad = $_POST[""];
+  public $numero_paquete = $_POST["number"];
+  public $numero_envio = $_POST["reference"];
+  public $fecha = $_POST[""];
 
-  public $nombre_empresa;
-  public $nombre_producto;
-  public $cantidad;
-  public $numero_paquete;
-  public $numero_envio;
-  public $fecha;
 
 
+/*
   public function get(){
 
   }
@@ -62,5 +64,5 @@ class Empresa extends DataBase {
   function __destruct () {
     unset($this);
   }
-
+*/
 }

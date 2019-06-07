@@ -33,7 +33,7 @@
     </header>
     <div class="row">
       <section class="col col-lg-7 form-wh">
-      <form method="post" action="prueba.php">
+      <form method="post" action="model/empresa.php">
   <div class="form-group">
     <label for="shipping-company">Shipping Company</label>
     <select class="form-control" name="company" id="exampleFormControlSelect2">
