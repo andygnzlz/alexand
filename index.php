@@ -33,10 +33,10 @@
     </header>
     <div class="row">
       <section class="col col-lg-7 form-wh">
-      <form>
+      <form method="post" action="prueba.php">
   <div class="form-group">
     <label for="shipping-company">Shipping Company</label>
-    <select class="form-control" id="exampleFormControlSelect2">
+    <select class="form-control" name="company" id="exampleFormControlSelect2">
       <option>DHL</option>
       <option>UPS</option>
       <option>Fedex</option>
@@ -45,16 +45,16 @@
   </div>
     <div class="form-group">
       <label for="shipping-reference">Shipping Reference</label>
-      <input class="form-control" type="text" placeholder="85020495">
+      <input class="form-control" type="text" placeholder="85020495" name="reference">
     </div>
     <div class="form-group">
       <label for="box-number">Box Number</label>
       <hr>
-      <input type="number" min="1" max="100" style="width:50%; margin-bottom:2%">
+      <input type="number" min="1" max="100" style="width:50%; margin-bottom:2%" name="number">
     </div>
     <div class="form-group">
       <label for="product" class="product">Product</label>
-      <select class="form-control" id="exampleFormControlSelect2">
+      <select class="form-control" id="exampleFormControlSelect2" name="product">
         <option>case s8</option>
         <option>case s10e</option>
         <option>case s9</option>
@@ -66,14 +66,22 @@
   </div>
   <div class="form-group">
     <label for="shipping-reference">Quantity</label>
-    <input class="form-control" type="text">
+    <input class="form-control" type="text" name="quantity">
   </div>
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">add box</button>
+  <div class="form-group text-center">
+    <input type="submit" name="enviar" value="enviar" class=" ">enviar
+  </div>
   </form>
   </section>
   <section class="col col-lg-3">
     <div class="invoice-box">
   </section>
+
   </div>
+
+  <?php
+    require('prueba.php');
+   ?>
   </body>
 </html>
