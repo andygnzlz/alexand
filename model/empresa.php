@@ -2,8 +2,22 @@
 #importar db.php
 require_once('db.php');
 
+$servername = "localhost";
+$database = "alexand";
+$username = "root";
+$password = "";
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+if (!$conn) {
+      die("Connection failed: " . mysqli_connect_error());
+}
+
+echo "Connected successfully";
+
 //class Empresa extends DataBase {
 #se reciben los datos del formulario
+if (isset($_POST["company"], $_POST["product"], $_POST["quantity"], $_POST["number"], $_POST["reference"])){
+
   $nombre_empresa = $_POST["company"];
   $nombre_producto = $_POST["product"];
   $cantidad = $_POST["quantity"];
@@ -11,17 +25,6 @@ require_once('db.php');
   $numero_envio = $_POST["reference"];
   $fecha = date ("Y/n/j");
 
-  $servername = "localhost";
-  $database = "alexand";
-  $username = "root";
-  $password = "";
-  // Create connection
-  $conn = mysqli_connect($servername, $username, $password, $database);
-  if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-  }
-
-  echo "Connected successfully";
 
   //$sql = "INSERT INTO empresas ( nombre_empresa) VALUES ('$nombre_empresa')";
   $sql_paquete = "INSERT INTO paquetes ( numero_paquete, fecha, numero_envio) VALUES ('$numero_paquete', '$fecha','$numero_envio')";
@@ -46,7 +49,9 @@ require_once('db.php');
   }
   mysqli_close($conn);
 
-#funcion para traer las empresas registradas
+
+}
+
 
 
 

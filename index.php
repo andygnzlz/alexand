@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="js/app.js">
   </head>
   <body>
-    <header>
+
+    <?php
+
+  require('model/empresa.php');
+
+  ?>
+  
+  <header>
       <nav class="navbar sticky navbar-dark bg-dark">
   <img src="img/whlogo.png" class="logohead">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,10 +44,21 @@
   <div class="form-group">
     <label for="shipping-company">Shipping Company</label>
     <select class="form-control" name="company" id="exampleFormControlSelect2">
+<?php
+$result=mysqli_query($conn, "SELECT nombre_empresa FROM empresas");
+
+      while ($row=mysqli_fetch_array($result))
+      {
+      echo '<option>'.$row["nombre_empresa"].'</option>';
+
+      }
+?>
+<!--
       <option>DHL</option>
       <option>UPS</option>
       <option>Fedex</option>
       <option>USPS</option>
+      -->
     </select>
   </div>
     <div class="form-group">
@@ -80,8 +98,6 @@
 
   </div>
 
-  <?php
 
-require('empresa.php');
 
 </html>
