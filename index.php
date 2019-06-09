@@ -81,7 +81,7 @@
   </div>
 
   <?php
-    require('prueba.php');
-   ?>
-  </body>
+
+require('empresa.php');
+
 </html>

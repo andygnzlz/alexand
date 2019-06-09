@@ -2,14 +2,51 @@
 #importar db.php
 require_once('db.php');
 
-class Empresa extends DataBase {
+//class Empresa extends DataBase {
 #se reciben los datos del formulario
-  public $nombre_empresa = $_POST["company"];
-  public $nombre_producto = $_POST[""];
-  public $cantidad = $_POST[""];
-  public $numero_paquete = $_POST["number"];
-  public $numero_envio = $_POST["reference"];
-  public $fecha = $_POST[""];
+  $nombre_empresa = $_POST["company"];
+  $nombre_producto = $_POST["product"];
+  $cantidad = $_POST["quantity"];
+  $numero_paquete = $_POST["number"];
+  $numero_envio = $_POST["reference"];
+  $fecha = date ("Y/n/j");
+
+  $servername = "localhost";
+  $database = "alexand";
+  $username = "root";
+  $password = "";
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $password, $database);
+  if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+  }
+
+  echo "Connected successfully";
+
+  //$sql = "INSERT INTO empresas ( nombre_empresa) VALUES ('$nombre_empresa')";
+  $sql_paquete = "INSERT INTO paquetes ( numero_paquete, fecha, numero_envio) VALUES ('$numero_paquete', '$fecha','$numero_envio')";
+  $sql_productos = "INSERT INTO productos ( nombre_producto, cantidad) VALUES ('$nombre_producto', '$cantidad')";
+/*
+  if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+  } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+*/
+  if (mysqli_query($conn, $sql_paquete)) {
+        echo "New record in packages created successfully";
+  } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+
+  if (mysqli_query($conn, $sql_productos)) {
+        echo "New record in product created successfully";
+  } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+  }
+  mysqli_close($conn);
+
+#funcion para traer las empresas registradas
 
 
 
@@ -65,4 +102,5 @@ class Empresa extends DataBase {
     unset($this);
   }
 */
-}
+//}
+?>
