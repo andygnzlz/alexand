@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html class="no-js" lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Warehouse M.</title>
@@ -8,7 +7,14 @@
     <link rel="stylesheet" href="js/app.js">
   </head>
   <body>
-    <header>
+
+    <?php
+
+  require('model/empresa.php');
+
+  ?>
+  
+  <header>
       <nav class="navbar sticky navbar-dark bg-dark">
   <img src="img/whlogo.png" class="logohead">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,28 +40,39 @@
     </header>
     <div class="row">
       <section class="col col-lg-7 form-wh">
-      <form>
+      <form method="post" action="model/empresa.php">
   <div class="form-group">
     <label for="shipping-company">Shipping Company</label>
-    <select class="form-control" id="exampleFormControlSelect2">
+    <select class="form-control" name="company" id="exampleFormControlSelect2">
+<?php
+$result=mysqli_query($conn, "SELECT nombre_empresa FROM empresas");
+
+      while ($row=mysqli_fetch_array($result))
+      {
+      echo '<option>'.$row["nombre_empresa"].'</option>';
+
+      }
+?>
+<!--
       <option>DHL</option>
       <option>UPS</option>
       <option>Fedex</option>
       <option>USPS</option>
+      -->
     </select>
   </div>
     <div class="form-group">
       <label for="shipping-reference">Shipping Reference</label>
-      <input class="form-control" type="text" placeholder="85020495">
+      <input class="form-control" type="text" placeholder="85020495" name="reference">
     </div>
     <div class="form-group">
       <label for="box-number">Box Number</label>
       <hr>
-      <input type="number" min="1" max="100" style="width:50%; margin-bottom:2%">
+      <input type="number" min="1" max="100" style="width:50%; margin-bottom:2%" name="number">
     </div>
     <div class="form-group">
       <label for="product" class="product">Product</label>
-      <select class="form-control" id="exampleFormControlSelect2">
+      <select class="form-control" id="exampleFormControlSelect2" name="product">
         <option>case s8</option>
         <option>case s10e</option>
         <option>case s9</option>
@@ -67,14 +84,20 @@
   </div>
   <div class="form-group">
     <label for="shipping-reference">Quantity</label>
-    <input class="form-control" type="text">
+    <input class="form-control" type="text" name="quantity">
   </div>
   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">add box</button>
+  <div class="form-group text-center">
+    <input type="submit" name="enviar" value="enviar" class=" ">enviar
+  </div>
   </form>
   </section>
   <section class="col col-lg-3">
     <div class="invoice-box">
   </section>
+
   </div>
-  </body>
+
+
+
 </html>
